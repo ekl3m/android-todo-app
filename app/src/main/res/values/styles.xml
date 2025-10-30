@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FilterButtonStyle">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:background">@drawable/rounded_button_gold</item>
+    </style>
+
+    <style name="EditButtonStyle">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:paddingHorizontal">16dp</item>
+        <item name="android:minHeight">28dp</item>
+        <item name="android:background">@drawable/rounded_button_gold</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/custom_textbox_underline</item>
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:textColorHint">@color/textPrimary</item>
+    </style>
+
+    <style name="GoldButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:background">@drawable/rounded_button_gold</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@color/cardTile</item>
+        <item name="android:popupBackground">@color/cardTile</item>
+        <item name="android:textColor">@color/textSecondary</item>
+    </style>
+
+    <style name="GoldUnderlineEditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorControlActivated">@color/accentGold</item> <!-- aktywne -->
+        <item name="colorControlNormal">@color/cardTile</item>     <!-- nieaktywne -->
+    </style>
+</resources>

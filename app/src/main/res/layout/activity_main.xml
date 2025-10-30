@@ -1,0 +1,202 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundDark">
+
+    <!-- Główna zawartość aplikacji -->
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Nagłówek -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/cardBackground">
+
+            <!-- Tytuł + ikony -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lista zadań"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <LinearLayout
+                    android:id="@+id/iconsContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="end"
+                    android:layout_marginEnd="4dp">
+
+                    <ImageView
+                        android:id="@+id/searchIcon"
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:padding="6dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_magnifying_glass"
+                        android:contentDescription="Szukaj zadania"
+                        app:tint="@color/textPrimary" />
+
+                    <ImageView
+                        android:id="@+id/settingsIcon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_gear"
+                        android:contentDescription="Ustawienia"
+                        app:tint="@color/textPrimary" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Filtry -->
+            <HorizontalScrollView
+                android:id="@+id/scrollViewFilters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none" >
+
+                <LinearLayout
+                    android:id="@+id/filterLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Przyciskowe filtry -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnAll"
+                        android:text="Wszystko"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnToDo"
+                        android:text="Do zrobienia"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnDone"
+                        android:text="Wykonane"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnHome"
+                        android:text="Dom"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnWork"
+                        android:text="Praca"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnSchool"
+                        android:text="Szkoła"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        style="@style/FilterButtonStyle"
+                        android:id="@+id/btnOther"
+                        android:text="Inne"
+                        android:textAllCaps="false"
+                        android:elevation="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- Wyszukiwarka -->
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Szukaj zadania..."
+            android:background="@drawable/custom_textbox_underline"
+            android:visibility="gone"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/cardTile" />
+
+        <!-- Tekst: brak zadań -->
+        <TextView
+            android:id="@+id/emptyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Brak zadań do wyświetlenia"
+            android:textAlignment="center"
+            android:textColor="@color/cardTile"
+            android:visibility="gone"
+            android:padding="24dp"
+            android:textSize="16sp" />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTasks"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:clipToPadding="false" />
+    </LinearLayout>
+
+    <!-- FAB „na wierzchu” -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_add"
+        android:contentDescription="Dodaj"
+        app:fabSize="normal"
+        app:backgroundTint="@color/accentGold"
+        app:tint="@color/backgroundDark" />
+</FrameLayout>

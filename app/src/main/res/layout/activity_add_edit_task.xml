@@ -1,0 +1,295 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundDark"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/rootViewEditForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp" >
+
+            <include layout="@layout/button_back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dodaj lub edytuj zadanie"
+                android:textColor="@color/textPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingStart="-20dp" />
+
+            <ImageView
+                android:id="@+id/iconSave"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/ic_checkmark"
+                android:contentDescription="Zapisz"
+                android:clickable="true"
+                android:focusable="true"
+                app:tint="@color/accentGold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tytuł zadania"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary" />
+
+        <EditText
+            android:id="@+id/editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Np. Sprzątanie"
+            android:padding="12dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/cardTile"
+            android:inputType="text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/accentGold"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Opis zadania"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary" />
+
+        <EditText
+            android:id="@+id/editDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Np. Posprzątać łazienki na parterze"
+            android:padding="12dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/cardTile"
+            android:inputType="text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/accentGold"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Termin wykonania"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginTop="12dp" />
+
+        <FrameLayout
+            android:id="@+id/datePickerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPickDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textSecondary"
+                android:background="@drawable/rounded_button_gold"
+                android:textAllCaps="false"
+                android:text="Wybierz termin" />
+
+            <ImageView
+                android:id="@+id/iconEditDate"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/ic_pencil"
+                android:visibility="gone"
+                android:elevation="6dp"
+                android:contentDescription="Edytuj termin"
+                app:tint="@color/textSecondary" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zadanie wykonane"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginTop="12dp"
+            app:thumbTint="@color/switch_thumb_color"
+            app:trackTint="@color/switch_track_color" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Powiadomienia"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            app:thumbTint="@color/switch_thumb_color"
+            app:trackTint="@color/switch_track_color" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kategoria zadania"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/categoryGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="12dp">
+
+            <!-- Dom -->
+            <LinearLayout
+                android:id="@+id/categoryHome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginHorizontal="10dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Dom"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dom"
+                    android:textColor="@color/textPrimary" />
+            </LinearLayout>
+
+            <!-- Praca -->
+            <LinearLayout
+                android:id="@+id/categoryWork"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginHorizontal="10dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_briefcase"
+                    android:contentDescription="Praca"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Praca"
+                    android:textColor="@color/textPrimary" />
+            </LinearLayout>
+
+            <!-- Szkoła -->
+            <LinearLayout
+                android:id="@+id/categorySchool"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginHorizontal="10dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_graduation_cap"
+                    android:contentDescription="Szkoła"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Szkoła"
+                    android:textColor="@color/textPrimary" />
+            </LinearLayout>
+
+            <!-- Inne -->
+            <LinearLayout
+                android:id="@+id/categoryOther"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginHorizontal="10dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_folder"
+                    android:contentDescription="Inne"
+                    android:layout_marginBottom="4dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inne"
+                    android:textColor="@color/textPrimary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Załączniki"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddAttachments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textSecondary"
+            android:background="@drawable/rounded_button_gold"
+            android:textAllCaps="false"
+            android:text="Dodaj załączniki"
+            android:layout_marginTop="12dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/attachmentsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical" />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

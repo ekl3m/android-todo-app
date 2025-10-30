@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:layerType="software"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/cardBackground">
+
+        <!-- NAGŁÓWEK -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_header_bg"
+            android:padding="12dp">
+
+            <!-- Nagłówek: tytuł + załącznik -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/taskTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tytuł zadania"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textSecondary"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/attachmentIcon" />
+
+                <ImageView
+                    android:id="@+id/attachmentIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_paperclip"
+                    android:visibility="visible"
+                    app:tint="@color/textSecondary" />
+            </RelativeLayout>
+
+            <!-- Termin (widoczny zawsze) -->
+            <TextView
+                android:id="@+id/taskDueTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Termin: yyyy-MM-dd HH:mm"
+                android:textSize="14sp"
+                android:textColor="@color/textSecondary"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Szczegóły (rozwijane) -->
+        <LinearLayout
+            android:id="@+id/detailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:padding="12dp"
+            android:background="@color/cardBackground">
+
+            <TextView
+                android:id="@+id/taskDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textPrimary"
+                android:text="Opis: ..." />
+
+            <TextView
+                android:id="@+id/detailCreated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textPrimary"
+                android:text="Dodano: ..." />
+
+            <TextView
+                android:id="@+id/detailCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textPrimary"
+                android:text="Kategoria: ..." />
+
+            <TextView
+                android:id="@+id/detailStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textPrimary"
+                android:text="Status: ..." />
+
+            <TextView
+                android:id="@+id/detailNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textPrimary"
+                android:text="Powiadomienie: ..." />
+
+            <TextView
+                android:id="@+id/detailAttachments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textPrimary"
+                android:text="\nZałączniki:"
+                android:visibility="gone"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/attachmentsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <!-- Przyciski: Edytuj / Usuń -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnFinish"
+                    style="@style/EditButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zakończ"
+                    android:textAllCaps="false"
+                    android:layout_marginEnd="24dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnEdit"
+                    style="@style/EditButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edytuj"
+                    android:textAllCaps="false"
+                    android:layout_marginEnd="24dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDelete"
+                    style="@style/EditButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Usuń"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
